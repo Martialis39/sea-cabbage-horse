@@ -24,30 +24,8 @@ function Modal({ render, setModalRender }) {
   return container
     ? createPortal(
         <ModalDiv>
-          <div
-            className="modal__container"
-            onClick={() => setModalRender(null)}
-          >
-            <div className="modal__inner">
-              <div className="modal__header">
-                <button
-                  className="modal__close"
-                  onClick={() => setModalRender(null)}
-                >
-                  X
-                </button>
-              </div>
-
-              {render()}
-              <div className="modal__footer">
-                <button
-                  className="modal__close modal__close--footer"
-                  onClick={() => setModalRender(null)}
-                >
-                  Back
-                </button>
-              </div>
-            </div>
+          <div className="modal__container">
+            <div className="modal__inner">{render()}</div>
           </div>
         </ModalDiv>,
         container

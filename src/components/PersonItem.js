@@ -66,7 +66,12 @@ function PersonItem(props) {
       onClick={() => {
         props.setModalRender(() => {
           return function() {
-            return <PersonItemModal {...props} />;
+            return (
+              <PersonItemModal
+                setModalRender={props.setModalRender}
+                {...props}
+              />
+            );
           };
         });
       }}

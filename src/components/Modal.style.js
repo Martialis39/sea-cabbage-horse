@@ -17,9 +17,7 @@ export const ModalDiv = styled.div`
     background: white;
     position: relative;
     z-index: 1;
-  }
-  .modal__close {
-    top: 8px;
-    right: 8px;
+    overflow: auto;
+    max-height: 100%;
   }
 `;
