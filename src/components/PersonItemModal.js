@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledDiv } from "./PersonItemModal.style";
+import { CustomFields } from "../constants";
 
 function PersonItemModal(props) {
   const imagePlaceholder =
@@ -37,11 +38,11 @@ function PersonItemModal(props) {
               </tr>
               <tr>
                 <td>Group</td>
-                <td>{props.fa8a12c37c765a344f5793b83266f07827649153}</td>
+                <td>{props[CustomFields.group]}</td>
               </tr>
               <tr>
                 <td>Assistant</td>
-                <td>{props.e57a0a20b6796a43597a65f44882a4d8cd65f3a8}</td>
+                <td>{props[CustomFields.assistant]}</td>
               </tr>
             </tbody>
           </table>

@@ -12,10 +12,12 @@ import PersonsService from "./services/persons";
 
 function App() {
   const [persons, setPersons] = useState(null);
+
   useEffect(() => {
     if (typeof window !== undefined && persons == null) {
       const store = window.localStorage;
       const personsFromLocalStorage = store.getItem("test_assignment_people");
+
       if (!personsFromLocalStorage) {
         PersonsService.getAllPersons().then(response => {
           store.setItem(
@@ -30,7 +32,6 @@ function App() {
     }
   }, [persons]);
   const [modalRender, setModalRender] = useState(null);
-  console.log("modalRender is ", modalRender);
 
   const moveCard = useCallback(
     (dragIndex, hoverIndex) => {
