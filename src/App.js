@@ -3,12 +3,13 @@ import React, { useState, useCallback, useEffect } from "react";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
 import PersonItem from "./components/PersonItem";
-import { PersonsList, Title } from "./App.style";
+import { PersonsListStyle, Title } from "./App.style";
 // DND
 import { DndProvider } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
 // Data
 import PersonsService from "./services/persons";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [persons, setPersons] = useState(null);
@@ -55,19 +56,21 @@ function App() {
       </Title>
       <DndProvider backend={HTML5Backend}>
         {persons && (
-          <PersonsList>
-            {persons.map((person, index) => {
-              return (
-                <PersonItem
-                  moveCard={moveCard}
-                  key={index}
-                  index={index}
-                  {...person}
-                  setModalRender={setModalRender}
-                />
-              );
-            })}
-          </PersonsList>
+          <PersonsListStyle>
+            <Pagination>
+              {persons.map((person, index) => {
+                return (
+                  <PersonItem
+                    moveCard={moveCard}
+                    key={index}
+                    index={index}
+                    {...person}
+                    setModalRender={setModalRender}
+                  />
+                );
+              })}
+            </Pagination>
+          </PersonsListStyle>
         )}
       </DndProvider>
     </main>

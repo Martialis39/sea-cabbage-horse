@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PersonsList = styled.div`
+export const PersonsListStyle = styled.div`
   padding: 20px 20px;
 
   & > * {
