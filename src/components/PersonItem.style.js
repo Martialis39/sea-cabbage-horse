@@ -7,10 +7,6 @@ export const PersonItemDiv = styled.div`
   border-radius: 2px;
   align-items: center;
   cursor: pointer;
-  transition: transform 200ms ease-in-out;
-  &:hover {
-    transform: translateY(-2px);
-  }
 
   .image {
     margin-left: auto;
