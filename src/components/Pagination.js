@@ -1,44 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyledButton } from "./Pagination.style";
+import { ItemsPerPage } from "../constants";
 
-function Pagination({ children }) {
+function PaginateAndFilter({ children }) {
   const [activePage, setActivePage] = useState(0);
-  const itemsPerPage = 10;
+  const [isFirstPage, setIsFirstPage] = useState(true);
+  const [isLastPage, setIsLastPage] = useState(false);
 
-  const childrenToBeShown = children.slice(
-    activePage * itemsPerPage,
-    activePage * itemsPerPage + itemsPerPage
+  const currentlyDisplayedItems = children.slice(
+    activePage * ItemsPerPage,
+    activePage * ItemsPerPage + ItemsPerPage
   );
 
-  const isFirstPage = activePage === 0;
-  const isLastPage =
-    activePage === Math.ceil(children.length / itemsPerPage - 1);
+  useEffect(() => {
+    setIsFirstPage(activePage === 0);
+    setIsLastPage(activePage === Math.ceil(children.length / ItemsPerPage - 1));
+  }, [activePage, children]);
 
   return (
     <>
-      {childrenToBeShown}
-
-      <StyledButton
-        disabled={isFirstPage}
-        onClick={() => {
-          setActivePage(activePage - 1);
-        }}
-      >
-        {" "}
-        prev
-      </StyledButton>
-
-      <StyledButton
-        disabled={isLastPage}
-        onClick={() => {
-          setActivePage(activePage + 1);
-        }}
-      >
-        {" "}
-        next
-      </StyledButton>
+      <div className="pagination">
+        <StyledButton
+          disabled={isFirstPage}
+          onClick={() => {
+            setActivePage(activePage - 1);
+          }}
+        >
+          {" "}
+          Previous page
+        </StyledButton>
+        <StyledButton
+          disabled={isLastPage}
+          onClick={() => {
+            setActivePage(activePage + 1);
+          }}
+        >
+          {" "}
+          Next page
+        </StyledButton>
+      </div>
+      {currentlyDisplayedItems}
     </>
   );
 }
 
-export default Pagination;
+export default PaginateAndFilter;
