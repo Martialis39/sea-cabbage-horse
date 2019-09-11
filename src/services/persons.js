@@ -1,14 +1,28 @@
 import axios from "axios";
+import { CustomFields } from "../constants";
 
 const getAllPersons = () => {
-  const request = axios.get(process.env.REACT_APP_API_GET_PERSONS);
+  const personsInOrder = `${process.env.REACT_APP_API_PERSONS}?start=0&sort=${CustomFields.order}&api_token=${process.env.REACT_APP_API_TOKEN}`;
+  const request = axios.get(personsInOrder);
   return request.then(response => response.data);
 };
 
 const deletePersonById = id => {
   const request = axios.delete(
-    `${process.env.REACT_APP_API_PERSONS}/${id}/${process.env.REACT_APP_API_TOKEN}`
+    `${process.env.REACT_APP_API_PERSONS}/${id}?api_token=${process.env.REACT_APP_API_TOKEN}`
   );
-  return request.then(response => response);
+  return request;
 };
-export default { getAllPersons, deletePersonById };
+
+const updatePersonOrder = arrayOfIdsAndOrders => {
+  arrayOfIdsAndOrders.forEach(person => {
+    axios.put(
+      `${process.env.REACT_APP_API_PERSONS}/${person.id}?api_token=${process.env.REACT_APP_API_TOKEN}`,
+      {
+        [CustomFields.order]: person.newIndex
+      }
+    );
+  });
+};
+
+export default { getAllPersons, deletePersonById, updatePersonOrder };
