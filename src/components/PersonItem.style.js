@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PersonItemDiv = styled.div`
+export const StyledPersonItem = styled.div`
   display: flex;
   padding: 8px 20px;
   border: 1px solid #00000030;

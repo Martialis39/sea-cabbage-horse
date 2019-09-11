@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import IconOrganization from "../assets/IconOrganization";
+import icon_organization from "../assets/icon_organization.svg";
 import PersonItemModal from "./PersonItemModal";
-import { PersonItemDiv } from "./PersonItem.style";
+import { StyledPersonItem } from "./PersonItem.style";
 
 import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "../constants";
 
 function PersonItem(props) {
   const ref = useRef(null);
-  const [collectedProps, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: ItemTypes.CARD,
     hover(item, monitor) {
       if (!ref.current) {
@@ -57,10 +57,12 @@ function PersonItem(props) {
   });
   const opacity = isDragging ? 0.5 : 1;
   drag(drop(ref));
+
   const imagePlaceholder =
     props.first_char.toUpperCase() + props.last_name.slice(0, 1);
+
   return (
-    <PersonItemDiv
+    <StyledPersonItem
       ref={ref}
       style={{ opacity: opacity }}
       onClick={() => {
@@ -69,6 +71,7 @@ function PersonItem(props) {
             return (
               <PersonItemModal
                 setModalRender={props.setModalRender}
+                handleDelete={props.delete}
                 {...props}
               />
             );
@@ -77,16 +80,18 @@ function PersonItem(props) {
       }}
     >
       <div className="info">
-        <div className="name">{props.name}</div>
+        <div className="name">
+          <p>{props.name}</p>
+        </div>
         <div className="company">
           <div className="icon">
-            <IconOrganization height="18" />
+            <img src={icon_organization} alt="" />
           </div>
           {props.org_name}
         </div>
       </div>
       <div className="image">{imagePlaceholder}</div>
-    </PersonItemDiv>
+    </StyledPersonItem>
   );
 }
 
