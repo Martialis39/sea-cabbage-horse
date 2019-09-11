@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const PersonsListStyle = styled.div`
+export const StyledPersonsList = styled.div`
   padding: 20px 20px;
-
+  list-style: none;
   & > * {
     margin-bottom: 8px;
   }
