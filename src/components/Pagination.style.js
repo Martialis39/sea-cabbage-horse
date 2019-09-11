@@ -12,6 +12,7 @@ export const StyledButton = styled.button`
   &:disabled {
     cursor: default;
   }
+
   &:not(:first-child) {
     margin-left: 10px;
   }
