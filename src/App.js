@@ -42,7 +42,7 @@ function App() {
         },
         []
       );
-      debugger;
+
       if (elementsOutOfPlace) {
         PersonsService.updatePersonOrder(elementsOutOfPlace);
         setNotification("Order updated");
