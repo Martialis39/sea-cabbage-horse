@@ -1,4 +1,4 @@
-# FE Ülesande Lahendus.
+# Mart Lepanen, FE ülesande Lahendus.
 
 06.09.2019 saadud ülesande lahendus.
 
@@ -12,9 +12,11 @@ Inimeste järjekorra salvestamise jätsin endale viimaseks väljakutseks. Ma ise
 
 Ülesande lahendamiseks kasutasin [Create React App](https://github.com/facebook/create-react-app).
 
+Märgin veel ära, et panin reposse ka API võtmega `.env.development` faili, et API päringud läbi läheksid. Päris projektis taipaksin seda .gitignore-ida :).
+
 ## How to run
 
-Clone the repo, run `npm install` to install the dependencies. The project include a .env.development with the correct API token.
+Clone the repo, run `npm install` to install the dependencies.
 
 In the project directory, you can run standard create-react-app commands, such as :
 
