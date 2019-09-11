@@ -1,6 +1,7 @@
 import React from "react";
 import { StyledDiv } from "./PersonItemModal.style";
 import { CustomFields } from "../constants";
+import icon_trash from "../assets/icon_trash.svg";
 
 function PersonItemModal(props) {
   const imagePlaceholder =
@@ -49,6 +50,9 @@ function PersonItemModal(props) {
         </div>
       </div>
       <div className="footer">
+        <button onClick={() => props.handleDelete(props.id)}>
+          <img src={icon_trash} alt="delete icon" />
+        </button>
         <button
           onClick={() => {
             props.setModalRender(null);
