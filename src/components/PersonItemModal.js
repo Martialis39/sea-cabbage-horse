@@ -1,5 +1,12 @@
 import React from "react";
-import { StyledDiv } from "./PersonItemModal.style";
+import {
+  StyledModal,
+  StyledModalHeader,
+  StyledModalFooter,
+  StyledCard,
+  StyledCardTop,
+  StyledCardBody
+} from "./PersonItemModal.style";
 import { CustomFields } from "../constants";
 import icon_trash from "../assets/icon_trash.svg";
 
@@ -8,25 +15,25 @@ function PersonItemModal(props) {
     props.first_char.toUpperCase() + props.last_name.slice(0, 1);
 
   return (
-    <StyledDiv>
-      <div className="header">
+    <StyledModal>
+      <StyledModalHeader className="header">
         <p>Person Information</p>
         <button
+          className="header__btn"
           onClick={() => {
             props.setModalRender(null);
           }}
-          className="header__btn"
         >
           X
         </button>
-      </div>
-      <div className="body">
-        <div className="face">
+      </StyledModalHeader>
+      <StyledCard>
+        <StyledCardTop>
           <div className="image">{imagePlaceholder}</div>
           <p className="name">{props.name}</p>
           <p className="phone">{props.phone[0].value}</p>
-        </div>
-        <div className="details">
+        </StyledCardTop>
+        <StyledCardBody>
           <table>
             <tbody>
               <tr>
@@ -47,22 +54,28 @@ function PersonItemModal(props) {
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-      <div className="footer">
-        <button onClick={() => props.handleDelete(props.id)}>
+        </StyledCardBody>
+      </StyledCard>
+      <StyledModalFooter>
+        <button
+          className="footer__delete"
+          onClick={() => {
+            props.handleDelete(props.id);
+            props.setModalRender(null);
+          }}
+        >
           <img src={icon_trash} alt="delete icon" />
         </button>
         <button
           onClick={() => {
             props.setModalRender(null);
           }}
-          className="footer__btn"
+          className="footer__close"
         >
           Back
         </button>
-      </div>
-    </StyledDiv>
+      </StyledModalFooter>
+    </StyledModal>
   );
 }
 

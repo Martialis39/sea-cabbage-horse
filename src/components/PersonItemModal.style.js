@@ -1,17 +1,13 @@
 import styled from "styled-components";
 
-export const StyledDiv = styled.div`
-  max-width: 480px;
-  box-shadow: 0px 3px 5px #00000030;
-  .header {
-    padding: 15px 20px;
-    color: #484848;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ededed;
-    font-weight: 700;
-  }
+export const StyledModalHeader = styled.div`
+  padding: 15px 20px;
+  color: #484848;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ededed;
+  font-weight: 700;
 
   .header__btn {
     background: transparent;
@@ -20,14 +16,16 @@ export const StyledDiv = styled.div`
     padding: 5px;
     font-weight: 700;
   }
+`;
 
-  .footer {
-    background: #ededed;
-    padding: 10px 20px;
-    text-align: right;
-  }
+export const StyledModalFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ededed;
+  padding: 10px 20px;
 
-  .footer__btn {
+  .footer__close {
     background: white;
     border: none;
     border-radius: 2px;
@@ -37,28 +35,25 @@ export const StyledDiv = styled.div`
     border: 1px solid #26292c70;
   }
 
-  .body {
-    padding: 0 20px;
+  .footer__delete {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    margin-left: -10px;
+    cursor: pointer;
   }
+`;
 
-  .face {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid #26292c1f;
-    padding: 40px 0 20px 0;
+export const StyledCard = styled.div`
+  padding: 0 20px;
+`;
 
-    .name {
-      font-weight: 800;
-      margin-bottom: 5px;
-      color: #484848;
-    }
-
-    .phone {
-      color: #61c786;
-      font-weight: 700;
-    }
-  }
+export const StyledCardTop = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #26292c1f;
+  padding: 40px 0 20px 0;
 
   .image {
     display: flex;
@@ -73,21 +68,37 @@ export const StyledDiv = styled.div`
     margin-bottom: 15px;
   }
 
-  .details {
-    padding: 20px 0;
-    td {
-      font-size: 14px;
-      padding: 0 15px;
-      padding-bottom: 15px;
-      font-weight: 700;
-    }
-    td:first-child {
-      text-align: right;
-      color: #656c7a;
-    }
-
-    td:last-child {
-      color: #26292c70;
-    }
+  .name {
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #484848;
   }
+
+  .phone {
+    color: #61c786;
+    font-weight: 700;
+  }
+`;
+
+export const StyledCardBody = styled.div`
+  padding: 20px 0;
+  td {
+    font-size: 14px;
+    padding: 0 15px;
+    padding-bottom: 15px;
+    font-weight: 700;
+  }
+  td:first-child {
+    text-align: right;
+    color: #656c7a;
+  }
+
+  td:last-child {
+    color: #26292c70;
+  }
+`;
+
+export const StyledModal = styled.div`
+  max-width: 480px;
+  box-shadow: 0px 3px 5px #00000030;
 `;
