@@ -7,3 +7,5 @@ export const CustomFields = {
   assistant: "5bcd1101165628ede7286423aeae4af846d61f1e",
   order: "3368b2c0cd78fedcd1006852881a34cfaed55552"
 };
+
+export const ItemsPerPage = 10;
