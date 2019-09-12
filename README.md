@@ -1,18 +1,16 @@
-# Mart Lepanen, FE ülesande Lahendus.
+# Mart Lepanen, FE asssignment solution.
 
-06.09.2019 saadud ülesande lahendus.
+A bit of feedback from my side:
 
-Väike kokkuvõte:
+I managed to implement all the required functionality, with the most difficult proving to be drag and drop. I grokked it relying heavily on React DND. With regards to CSS, I ended up using `styled-components` which isn't strictly a pre/post processor (as requested) but I think/hope that's not an issue.
 
-Suutsin täita põhinõuded. Kõige keerulisemaks osutus drag and drop, ent suutsin React DNDle tuginedes sellegi saavutada. Mis puudutab CSSi, siis kasutasin hoopis `styled-components` lahendust. See ei käi küll rangelt pre/post processorite alla, aga loodan, et sobib sellegipoolest.
+From the bonus tasks, I chose to tackle pagination first. I also added a button to the modal which deletes the user.
 
-Boonus asjadest võtsin ette paginationi. Peale selle lisasin ka inimese modalisse nupu, mis ta kustutab.
+I saved the "save the custom order after drag and drop" for last, as I anticipated it might take me a while. The implementation that I ended up with is something that I wouldn't considered perfect, but I left it in anyway so that you could get an idea of my approach.
 
-Inimeste järjekorra salvestamise jätsin endale viimaseks väljakutseks. Ma ise ei loeks seda ülesannet “lahendatuks”, aga jätsin oma lahenduse alge siiski koodi sisse. See on piisavalt täielik, et anda aimu mu valitud suunast.
+I used Create react app for a quick and easy starter.
 
-Ülesande lahendamiseks kasutasin [Create React App](https://github.com/facebook/create-react-app).
-
-Märgin veel ära, et panin reposse ka API võtmega `.env.development` faili, et API päringud läbi läheksid. Päris projektis taipaksin seda .gitignore-ida :).
+Oh and I left the `.env.development` file with my API key in the repo on purpose, just so that all the API bits would work straight out of the box. I would not commit it in a real project :)
 
 ## How to run
 
